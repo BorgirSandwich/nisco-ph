@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 | NISCO</title>
+  <style>
+    :root {
+      --bg: #3498DB;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.82);
+      --button: #ffffff;
+      --buttonText: #1b4f72;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .wrap {
+      max-width: 560px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 10vw, 6rem);
+      line-height: 1;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    p {
+      font-size: clamp(1rem, 3vw, 1.125rem);
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--button);
+      color: var(--buttonText);
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    a:hover {
+      opacity: 0.92;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>404</h1>
+    <p>The page you’re looking for does not exist or may have been moved.</p>
+    <a href="/">Back to Home</a>
+  </main>
+</body>
+</html>
