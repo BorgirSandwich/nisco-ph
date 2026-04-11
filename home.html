@@ -109,10 +109,11 @@
     justify-content: flex-end;
     padding: 7rem 1.5rem 5rem;
     background: var(--green-very-dark);
-    background-image: url("background image.webp");
+    background-image: url("background image.webp")center / cover no-repeat;
     position: relative;
     overflow: hidden;
     z-index: 1;
+    inset: 0;
   }
 
   .hero-glow-amber {
@@ -140,6 +141,26 @@
     height: 80px;
     background: var(--cream);
     clip-path: ellipse(55% 100% at 50% 100%);
+    inset: 0;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    mask-image: linear-gradient(
+     to top right,
+     rgba(0,0,0,1) 0%,
+     rgba(0,0,0,0.8) 30%,
+     rgba(0,0,0,0.4) 60%,
+     rgba(0,0,0,0) 100%
+     );
+
+    -webkit-mask-image: linear-gradient(
+      to top right,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,0.8) 30%,
+      rgba(0,0,0,0.4) 60%,
+      rgba(0,0,0,0) 100%
+    );
   }
 
   .hero-eyebrow {
