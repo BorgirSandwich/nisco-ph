@@ -108,51 +108,61 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 7rem 1.5rem 5rem;
-    background: var(--green-very-dark);
-    background-image: url("background image.webp")center / cover no-repeat;
+    background: var(--green-very-dark) url("background image.webp") center / cover no-repeat;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    inset: 0;
   }
-
+  
   .hero-glow-amber {
     position: absolute;
-    width: 480px; height: 480px;
+    width: 480px;
+    height: 480px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(200,137,74,0.16) 0%, transparent 68%);
-    top: -80px; right: -100px;
+    top: -80px;
+    right: -100px;  
     pointer-events: none;
   }
-
-  .hero-glow-green {
+  
+  .hero-glow-green { 
     position: absolute;
-    width: 320px; height: 320px;
+    width: 320px;  
+    height: 320px;  
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(58,117,69,0.14) 0%, transparent 68%);
-    bottom: 100px; left: -80px;
-    pointer-events: none;
-  }
-
+    background: radial-gradient(circle, rgba(58,117,69,0.14) 0%, transparent 68%);  
+    bottom: 100px;
+    left: -80px;
+    pointer-events: none; 
+  }  
+  
   #home::after {
     content: '';
     position: absolute;
-    bottom: -2px; left: 0; right: 0;
-    height: 80px;
-    background: var(--cream);
-    clip-path: ellipse(55% 100% at 50% 100%);
-    inset: 0;
-
+    left: 0;
+    bottom: 0;
+    width: 100%; 
+    height: 320px;  
+    pointer-events: none;
+ 
+    background: linear-gradient(
+      to top right, 
+      rgba(10, 40, 20, 0.78) 0%,  
+      rgba(10, 40, 20, 0.45) 30%,
+      rgba(10, 40, 20, 0.18) 60%,
+      rgba(10, 40, 20, 0) 100% 
+    );
+ 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-
+  
     mask-image: linear-gradient(
-     to top right,
-     rgba(10, 40, 20, 0.8) 0%,
-     rgba(0,0,0,0.8) 30%,
-     rgba(0,0,0,0.4) 60%,
-     rgba(0,0,0,0) 100%
-     );
+      to top right, 
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,0.8) 30%,
+      rgba(0,0,0,0.4) 60%,
+      rgba(0,0,0,0) 100%
+    );
 
     -webkit-mask-image: linear-gradient(
       to top right,
