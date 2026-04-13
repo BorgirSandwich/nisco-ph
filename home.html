@@ -411,6 +411,17 @@
     letter-spacing: 0.05em;
   }
 
+ .footer-bottom a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  
+  .footer-bottom a:hover {
+    color: var(--amber);
+  }
+
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -528,7 +539,7 @@
   <p class="footer-tagline">Empowering Farmers, Strengthening Communities.</p>
   <div class="footer-bottom">
     <span>Philippines &mdash; Agriculture Technology</span>
-    <span>info@nisco-ph.com</span>
+    <a href="mailto:info@nisco-ph.com">info@nisco-ph.com</a>
     <span>&copy; 2025 NISCO Corporation. All rights reserved.</span>
   </div>
 </footer>
