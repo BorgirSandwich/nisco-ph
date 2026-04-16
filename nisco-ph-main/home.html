@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NISCO — Empowering Farmers, Strengthening Communities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="logo.png">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:           #0d0d0d;
+    --green:           #3a7545;
+    --green-dark:      #2a5532;
+    --green-very-dark: #27452C;
+    --green-light:     #4d9060;
+    --amber:           #c8894a;
+    --amber-light:     #dda96e;
+    --amber-pale:      #f5e8d8;
+    --cream:           #f7f0e6;
+    --cream-dark:      #C8E6C9;
+    --text-dark:       #0d0d0d;
+    --text-mid:        #3a3a2e;
+    --text-muted:      #7a7060;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247, 240, 230, 0.93);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(200, 137, 74, 0.18);
+    padding: 0 1.5rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    color: var(--green-dark);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .nav-logo img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--green); }
+
+  /* HERO */
+  #home {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 7rem 1.5rem 5rem;
+    background: 
+    linear-gradient(to right, rgba(0, 8, 3, 0.9), rgba(255, 255, 255, 0.0)),
+    url('cover-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .hero-glow-amber {
+    position: absolute;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,137,74,0.16) 0%, transparent 68%);
+    top: -80px; right: -100px;
+    pointer-events: none;
+  }
+
+  .hero-glow-green {
+    position: absolute;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(58,117,69,0.14) 0%, transparent 68%);
+    bottom: 100px; left: -80px;
+    pointer-events: none;
+  }
+
+  #home::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 80px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(3.2rem, 13vw, 7.5rem);
+    line-height: 0.88;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-title .accent {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero-rule {
+    width: 40px;
+    height: 2px;
+    background: var(--amber);
+    margin-bottom: 1.2rem;
+    opacity: 0.65;
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.88rem, 2.5vw, 1rem);
+    color: rgba(247, 240, 230, 0.75);
+    font-weight: 400;
+    max-width: 340px;
+    line-height: 1.7;
+  }
+
+  /* ABOUT */
+  #about {
+    padding: 6rem 1.5rem;
+    background: var(--cream);
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 36px;
+    background: var(--amber);
+    opacity: 0.4;
+  }
+
+  .about-headline {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.18;
+    color: var(--green-dark);
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+
+  .about-headline strong {
+    font-weight: 600;
+    color: var(--green);
+  }
+
+  .about-body {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    max-width: 520px;
+    font-weight: 400;
+    line-height: 1.85;
+  }
+
+  .about-body + .about-body { margin-top: 1.25rem; }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(200,137,74,0.28), transparent);
+    margin: 3rem 0;
+  }
+
+  .ecosystem-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: rgba(58, 117, 69, 0.08);
+    border: 1px solid rgba(58, 117, 69, 0.2);
+    padding: 0.3rem 0.85rem;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  /* GOAL */
+  #goal {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(to right,  rgba(0, 8, 3, 0.9), rgba(255, 255, 255, 0.0)),
+    url('background image.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .goal-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,137,74,0.09) 0%, transparent 65%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .wave-top {
+    position: absolute;
+    top: -2px; left: 0; right: 0;
+    height: 80px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 0%);
+  }
+
+  .wave-bottom {
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 80px;
+    background: var(--cream-dark);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .goal-inner {
+    position: relative;
+    padding-top: 2rem;
+  }
+
+  .section-label-light {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(200, 137, 74, 0.80);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label-light::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 36px;
+    background: var(--amber);
+    opacity: 0.35;
+  }
+
+  .goal-headline {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.18;
+    margin-bottom: 1.75rem;
+    max-width: 560px;
+  }
+
+  .goal-headline .accent { color: var(--amber); font-style: italic; }
+
+  .goal-body {
+    font-size: 0.97rem;
+    color: rgba(247, 240, 230, 0.72);
+    max-width: 500px;
+    font-weight: 400;
+    line-height: 1.85;
+  }
+
+  .goal-pillars {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .pillar {
+    border-top: 1px solid rgba(200, 137, 74, 0.12);
+    padding: 1.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0 0.75rem;
+    align-items: start;
+    border: #C8E6C9 solid 2px;
+    border-radius: 12px;
+    background: rgba(200, 230, 201, 0.10);
+  }
+
+  .pillar:last-child { border-bottom: 1px solid rgba(200, 137, 74, 0.12); }
+
+  .pillar-number {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--amber);
+    opacity: 0.85;
+    padding-top: 0.12rem;
+  }
+
+  .pillar-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .pillar-desc {
+    font-size: 0.84rem;
+    color: rgba(247, 240, 230, 0.68);
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--cream-dark);
+    padding: 4rem 1.5rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-icon {
+    max-width: 30vw;
+    height: autopx;
+    object-fit: contain;
+    opacity: 0.7;
+    margin-bottom: 0.75rem;
+    margin-left: -0.5rem;
+  }
+
+  .footer-name {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: 300;
+    color: var(--green-dark);
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    margin-bottom: 3rem;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border-top: 1px solid rgba(200, 137, 74, 0.18);
+    padding-top: 1.5rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+ .footer-bottom a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  
+  .footer-bottom a:hover {
+    color: var(--amber);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { opacity: 0; animation: fadeUp 0.85s ease forwards; }
+  .d1 { animation-delay: 0.1s; }
+  .d2 { animation-delay: 0.28s; }
+  .d3 { animation-delay: 0.44s; }
+  .d4 { animation-delay: 0.58s; }
+
+  /* RESPONSIVE */
+  @media (min-width: 640px) {
+    nav { padding: 0 3rem; }
+    #home { padding: 7rem 3rem 5rem; }
+    #about { padding: 7rem 3rem; }
+    #goal { padding: 7rem 3rem; }
+    footer { padding: 5rem 3rem 3.5rem; }
+
+    .goal-pillars { grid-template-columns: 1fr 1fr 1fr; gap: 0 2rem; }
+    .pillar { display: block; border-bottom: none; }
+    .pillar:last-child { border-bottom: none; }
+    .pillar-number { margin-bottom: 0.5rem; }
+  }
+
+  @media (min-width: 1024px) {
+    nav { padding: 0 5rem; }
+    #home { padding: 7rem 5rem 6rem; }
+    #about {
+      padding: 9rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    #about .right-col { padding-top: 4.5rem; }
+    #goal { padding: 9rem 5rem; }
+    footer { padding: 6rem 5rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="nav-logo">
+    <img src="logo.png" alt="">
+    NISCO
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#goal">Our Goal</a></li>
+  </ul>
+</nav>
+
+<section id="home">
+  <div class="hero-glow-amber"></div>
+  <div class="hero-glow-green"></div>
+  <p class="hero-eyebrow fade-up d1">Philippines &mdash; Agriculture Technology</p>
+  <h1 class="hero-title fade-up d2">Empower<span class="accent">ing</span><br>Farm<span class="accent">ers.</span></h1>
+  <div class="hero-rule fade-up d3"></div>
+  <p class="hero-tagline fade-up d4">Strengthening communities through modern, connected, and data-driven agriculture.</p>
+</section>
+
+<section id="about">
+  <div class="left-col">
+    <p class="section-label">About NISCO</p>
+    <h2 class="about-headline">A corporation built to <strong>modernize</strong> Philippine agriculture.</h2>
+  </div>
+  <div class="right-col">
+    <p class="about-body">NISCO is an agriculture technology corporation focused on the Philippines. We develop digital tools and systems that help farmers, local government units, and communities work with better data, stronger coordination, and greater market access.</p>
+    <div class="divider"></div>
+    <span class="ecosystem-tag">NISConnect</span>
+    <p class="about-body">Our digital ecosystem, NISConnect, connects municipal governments, field enumerators, farmers, and markets on a single platform — reducing the fragmentation that has long held Philippine agriculture back.</p>
+  </div>
+</section>
+
+<section id="goal">
+  <div class="goal-glow"></div>
+  <div class="wave-top"></div>
+  <div class="wave-bottom"></div>
+  <div class="goal-inner">
+    <p class="section-label-light">Our Goal</p>
+    <h2 class="goal-headline">Modern tools for the people who <span class="accent">feed the nation.</span></h2>
+    <p class="goal-body">When municipalities have better data, farmers get better support. Our goal is to help local governments move from reactive planning to proactive governance — and to give farmers the visibility, resources, and connections they deserve.</p>
+    <div class="goal-pillars">
+      <div class="pillar">
+        <p class="pillar-number">01</p>
+        <div>
+          <p class="pillar-title">Better Data</p>
+          <p class="pillar-desc">Consolidate fragmented agricultural records into one clean, reliable, real-time source of truth.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <p class="pillar-number">02</p>
+        <div>
+          <p class="pillar-title">Stronger Governance</p>
+          <p class="pillar-desc">Help LGUs shift from paper and guesswork to proactive, informed agricultural planning.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <p class="pillar-number">03</p>
+        <div>
+          <p class="pillar-title">Market Access</p>
+          <p class="pillar-desc">Connect farmers and cooperatives directly to buyers, reducing barriers and improving livelihoods.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="footer-icon" src="nisco-mini_1.png" alt="">
+  <p class="footer-tagline">Empowering Farmers, Strengthening Communities.</p>
+  <div class="footer-bottom">
+    <span>Philippines &mdash; Agriculture Technology</span>
+    <a href="mailto:info@nisco-ph.com">info@nisco-ph.com</a>
+    <span>&copy; 2025 NISCO Corporation. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>

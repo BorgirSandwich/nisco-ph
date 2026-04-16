@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="logo.png">
+  <title>NISCO-PH</title>
+  <style>
+    :root {
+      --bg: #C8E6C9;
+      --text: black;
+      --muted: #013220;
+      --button: #ffffff;
+      --buttonText: #1B5E20;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      max-width: 100vw;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(0, 8, 3, 0.9)),
+      url('cover-bg.webp');
+      background-size: cover;
+      background-position: center;
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .wrap {
+      max-width: 560px;
+      width: 100%;
+    }
+
+    p {
+      font-size: clamp(1rem, 3vw, 1.125rem);
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    img {
+      margin-top: -5rem;
+      max-width: 80vw;
+      height: auto;
+    }
+    
+    a {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--button);
+      color: var(--buttonText);
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    a:hover {
+      opacity: 0.92;
+      color: #2E7D32;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <img src="nisco_2.png" alt="NISCO">
+    <p style="margin-top: -5rem; color: white;">Coming Soon</p>
+    <a href="home.html">Learn More</a>
+  </main>
+</body>
+</html>
